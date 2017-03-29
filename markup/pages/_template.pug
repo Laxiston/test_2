@@ -1,0 +1,26 @@
+include ../components/_include/_include
+
+block vars
+
+doctype html
+html(class='no-js', lang= page.language)
+
+    head
+        +head(head)
+    body
+        | %=symbols=%
+
+        +b.b-page#panel(class=(page.name ? 'b-page--' + page.name : ''))
+            block header
+            block main
+            block footer
+
+        script(src='%=static=%js/separate-js/svg4everybody.min.js')
+        script svg4everybody();
+
+        block scripts
+            +scripts(scripts)
+
+        //- Main scripts. You can replace it, but I recommend you to leave it here
+        // Main scripts
+        script(src='%=static=%js/main%=hash=%%=min=%.js')

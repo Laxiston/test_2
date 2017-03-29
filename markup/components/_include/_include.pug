@@ -1,0 +1,37 @@
+include ../../../node_modules/bemto.pug/bemto
+
+//- Settings
+-
+    set_bemto_settings({
+        prefix: {
+            '': 'b-',
+            'js-': true
+        },
+        element: '__',
+        modifier: '_',
+        output_element: '__',
+        output_modifier: '--',
+        default_tag: 'div'
+    });
+
+//- Main blocks
+include ../head/head
+include ../sidebar/sidebar
+include ../main/main
+include ../scripts/scripts
+
+- var svg = '%=static=%images/minified-svg';
+- var general = '%=static=%images/general';
+- var content = '%=static=%images/content';
+- var plugins = '%=static=%images/plugins';
+- var svg_sprite = '%=static=%images/svg-sprite';
+- var js = '%=static=%js/separate-js';
+- var url = 'javascript:void(0);';
+- var random = function(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; };
+
+//- Mixins
+mixin script(script)
+    each src in script
+        - var isExternalScript = /^(?:https?\:)?\/\//i;
+        - src = isExternalScript.test(src) ? src : '%=static=%js/separate-js/' + src;
+        script(src=src)

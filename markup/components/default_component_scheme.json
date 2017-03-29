@@ -1,0 +1,19 @@
+{
+    "folders": [{
+            "name": "data",
+            "files": [{
+                    "name": "data.js",
+                    "content": "const data = {__componentName__: {}};"
+                }]
+        }],
+    "files": [{
+            "name": "__componentName__.__templateExtension__",
+            "content": "mixin __componentName__(data)\n\t+b.b-__componentName__"
+        }, {
+            "name": "__componentName__.__cssExtension__",
+            "content": "@include b('b-__componentName__') {}"
+        }, {
+            "name": "__componentName__.js",
+            "content": ""
+        }]
+}

@@ -1,0 +1,23 @@
+$font: 'OpenSans';
+$fontPath: '../fonts/';
+$fileFormats: woff woff2 ttf svg eot;
+$fontFamilies: (
+    //Thin: '100',
+    //Light: '300',
+    //Regular: '400',
+    //Medium: '500',
+    //Bbook: '500',
+    //SemiBold: '600',
+    //SemiBoldItalic: '600',
+    Bold: '700',
+    //Black: '900'
+);
+
+@each $fontFamily, $fontWeight in $fontFamilies {
+    @include font-face($font + '-#{$fontFamily}', $fontPath + to-lower-case($font) + '-' + to-lower-case($fontFamily), $fontWeight, $file-formats: $fileFormats);
+}
+
+$icon: 'icomoon';
+$iconFormats: woff eot ttf svg;
+
+@include font-face($icon, $fontPath + to-lower-case($icon), normal, $file-formats: $iconFormats);

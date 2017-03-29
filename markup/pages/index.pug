@@ -1,0 +1,21 @@
+extends _template
+
+append vars
+    -
+        var page = {
+            title: 'Title',
+            language: 'ru',
+            name: '',
+            appTitle: '',
+            description: ''
+        };
+
+//-append header
+    +e.HEADER.header
+
+append main
+    +e.MAIN.inner
+        +main
+
+//-append footer
+    +e.FOOTER.footer

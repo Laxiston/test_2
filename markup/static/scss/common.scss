@@ -1,0 +1,62 @@
+html * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+    transition: color 300ms $ease-in-out-cubic, border 300ms $ease-in-out-cubic, background 300ms $ease-in-out-cubic;
+
+    @include hover-focus-active {
+        outline: none;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+ul, ol, li {
+    @include nl;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none;
+}
+
+.collapse {
+    display: none;
+
+    &.in {
+        display: block;
+    }
+}
+
+.collapsing {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    @include transition(height 350ms ease);
+}
+
+@include b('b-container') {
+    //margin-left: auto;
+    //margin-right: auto;
+    @include container;
+
+    @include e('row') {
+        @include make-row;
+    }
+}

@@ -1,0 +1,6 @@
+mixin sidebar(data)
+    +b.b-sidebar
+        +e.inner
+            +e.UL.list
+                each item in ['Личный кабинет', 'Платежи', 'История платежей', 'Настройки', 'Выйти']
+                    li: a(href=url)= item
